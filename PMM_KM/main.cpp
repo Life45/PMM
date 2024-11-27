@@ -1,6 +1,6 @@
 #include <ntddk.h>
 #include <intrin.h>
-#include <ia32.hpp>
+#include <../external/ia32-doc/out/ia32.hpp>
 
 #define IOCTL_TEST CTL_CODE(FILE_DEVICE_UNKNOWN, 0x800, METHOD_NEITHER, FILE_ANY_ACCESS)
 #define IOCTL_MAP_PAGES CTL_CODE(FILE_DEVICE_UNKNOWN, 0x801, METHOD_NEITHER, FILE_ANY_ACCESS)
@@ -165,6 +165,7 @@ bool MapPages(cr3 cr3)
         }
     }
 
+	// Change the current table
     *currentPml4e = *Pml4e;
 
     DbgPrint("Pml4e: %p\n", Pml4e);

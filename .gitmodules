@@ -1,0 +1,3 @@
+[submodule "external/ia32-doc"]
+	path = external/ia32-doc
+	url = https://github.com/wbenny/ia32-doc.git
