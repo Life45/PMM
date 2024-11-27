@@ -50,14 +50,6 @@ int main()
     value = *(uint64_t*)(physicalBase + reinterpret_cast<uint64_t>(testPool));
     std::cout << "Value at PA " << std::hex << reinterpret_cast<uint64_t>(testPool) << " is 0x" << value << std::endl;
 
-	// Read for 1 minute and print every 5 seconds
-    for (int i = 0; i < 12; i++)
-    {
-        value = *(uint64_t*)(physicalBase + reinterpret_cast<uint64_t>(testPool));
-        std::cout << "Value at PA " << std::hex << reinterpret_cast<uint64_t>(testPool) << " is 0x" << value << std::endl;
-        Sleep(5000);
-    }
-
     // Unmap the pages
 	if (!DeviceIoControl(hDevice, IOCTL_UNMAP_PAGES, NULL, 0, NULL, 0, &bytesReturned, NULL))
 	{
