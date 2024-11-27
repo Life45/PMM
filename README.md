@@ -28,4 +28,6 @@ The usermode code demonstrates this on an allocated non paged pool.
 
 The current implementation maps 64GB of physical memory using 2MB large pages for efficiency.
 
-Note: This PoC is for educational purposes only, demonstrating x64 paging mechanisms. It is not meant to be used in production or for any malicious purposes. The memory manager will most likely explode after a while.
+Note: This PoC is for educational purposes only, demonstrating x64 paging mechanisms. It is not meant to be used in production or for any malicious purposes. This will most likely cause lots of problems in production code.
+
+I was mostly inspired by [jonomango's hypervisor](https://github.com/jonomango/hv). If you are interested in hypervisors, it's a great source.
