@@ -142,7 +142,7 @@ bool MapPages(cr3 cr3)
     Pml4e->flags = 0;
     Pml4e->present = 1;
     Pml4e->write = 1;
-    Pml4e->supervisor = 1; // User/supervisor; if 0, user-mode accesses are not allowed to the 2-MByte page referenced by this entry.
+    Pml4e->supervisor = 1;
     Pml4e->page_frame_number = MmGetPhysicalAddress(Table->Pdpt).QuadPart >> 12; // PageSize
     for (UINT64 i = 0; i < 64; i++) // 64 GB
     {
@@ -150,7 +150,7 @@ bool MapPages(cr3 cr3)
         Pdpte->flags = 0;
         Pdpte->present = 1;
         Pdpte->write = 1;
-        Pdpte->supervisor = 1; // User/supervisor; if 0, user-mode accesses are not allowed to the 2-MByte page referenced by this entry.
+        Pdpte->supervisor = 1;
         Pdpte->page_frame_number = MmGetPhysicalAddress(&Table->Pd[i]).QuadPart >> 12; // PageSize
 
         for (UINT64 j = 0; j < 512; j++)
